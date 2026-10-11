@@ -9,7 +9,7 @@ import argparse
 import json
 import sys
 
-from .classifier import Classifier
+from .classifier import Classifier, should_block
 from .llm import DeepSeekLLM
 
 
@@ -24,6 +24,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="净土：负面内容分类器")
     ap.add_argument("text", nargs="?", help="要分类的文本")
     ap.add_argument("--llm", action="store_true", help="启用 LLM 语义层（需 .env 配 key）")
+    ap.add_argument("--strength", choices=["mild", "standard", "strict"], default="standard", help="过滤强度")
     ap.add_argument("--json", action="store_true", help="输出 JSON")
     args = ap.parse_args(argv)
 
@@ -40,11 +41,13 @@ def main(argv=None) -> int:
 
     for t in texts:
         r = c.classify(t)
+        blocked = should_block(r, args.strength)
         if args.json:
-            print(json.dumps({"text": t, **r}, ensure_ascii=False))
+            print(json.dumps({"text": t, **r, "blocked": blocked}, ensure_ascii=False))
         else:
             labels = ", ".join(r["labels"]) or "-"
-            print(f"[{r['severity']:.1f}] {labels:<28} | {t}")
+            mark = "[屏蔽]" if blocked else "[正常]"
+            print(f"{mark} [{r['severity']:.1f}] {labels:<28} | {t}")
     return 0
 
 

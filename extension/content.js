@@ -1,14 +1,22 @@
 // 净土 Jingtu 内容脚本
 // 监听页面，把可疑的评论/帖子文本发给本地分类服务，命中的折叠（可点击恢复）。
 const API = "http://127.0.0.1:8000/classify";
-const THRESHOLD = 0.5;
+
+let settings = { enabled: true, strength: "standard" };
+chrome.storage.sync.get(["enabled", "strength"], (s) => {
+  settings = { enabled: s.enabled !== false, strength: s.strength || "standard" };
+});
+chrome.storage.onChanged.addListener((changes) => {
+  if (changes.enabled) settings.enabled = changes.enabled.newValue;
+  if (changes.strength) settings.strength = changes.strength.newValue;
+});
 
 async function classify(text) {
   try {
     const res = await fetch(API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, strength: settings.strength }),
     });
     if (!res.ok) return null;
     return await res.json();
@@ -47,6 +55,7 @@ const SELECTORS = [
 const seen = new WeakSet();
 
 function scan() {
+  if (!settings.enabled) return;
   for (const sel of SELECTORS) {
     document.querySelectorAll(sel).forEach(async (el) => {
       if (seen.has(el) || el.dataset.jingtu) return;

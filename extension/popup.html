@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  body{width:240px;font-family:"Microsoft YaHei",sans-serif;margin:0;padding:14px;font-size:14px;color:#1f2937}
+  h3{margin:0 0 10px;font-size:15px}
+  label{display:block;margin:10px 0 4px}
+  select,button{width:100%;padding:7px;margin:4px 0;box-sizing:border-box;border:1px solid #e5e7eb;border-radius:8px}
+  button{background:#111827;color:#fff;cursor:pointer;margin-top:10px}
+  .hint{color:#888;font-size:12px;margin-top:10px}
+</style>
+</head>
+<body>
+  <h3>🕊️ 净土 Jingtu</h3>
+  <label><input type="checkbox" id="enabled" checked> 启用过滤</label>
+  <label>过滤强度</label>
+  <select id="strength">
+    <option value="mild">温和 · 只拦辱骂/歧视</option>
+    <option value="standard" selected>标准 · 默认</option>
+    <option value="strict">严格 · 尽量多拦</option>
+  </select>
+  <button id="save">保存</button>
+  <div class="hint">需先启动本地服务：<br>uvicorn jingtu.api:app --port 8000</div>
+  <script src="popup.js"></script>
+</body>
+</html>

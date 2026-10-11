@@ -26,3 +26,7 @@
 {"text": "这电影真好看，推荐大家去看", "labels": ["normal"]}
 {"text": "请问这个优惠券怎么领？", "labels": ["normal"]}
 {"text": "我觉得两个方案各有优劣，很难说哪个更好", "labels": ["normal"]}
+{"text": "这首经典音乐真好听", "labels": ["normal"]}
+{"text": "这本字典很好用", "labels": ["normal"]}
+{"text": "孝顺父母是传统美德", "labels": ["normal"]}
+{"text": "周末去爬山放松一下", "labels": ["normal"]}
