@@ -1,0 +1,22 @@
+{"text": "你是个傻逼", "labels": ["abuse"]}
+{"text": "煞笔一个，滚蛋", "labels": ["abuse"]}
+{"text": "nmsl", "labels": ["abuse"]}
+{"text": "不会吧不会吧，就这？", "labels": ["passive_aggressive"]}
+{"text": "哇，你可真是太聪明了呢", "labels": ["passive_aggressive"]}
+{"text": "急了急了，你开心就好", "labels": ["passive_aggressive"]}
+{"text": "又来引战，地域黑滚出去", "labels": ["baiting"]}
+{"text": "男拳师别来沾边", "labels": ["baiting"]}
+{"text": "饭圈毒唯滚出这个评论区", "labels": ["baiting"]}
+{"text": "XX人都是小偷", "labels": ["discrimination"]}
+{"text": "黑鬼就是低等种族", "labels": ["discrimination"]}
+{"text": "娘炮不配当男人", "labels": ["discrimination"]}
+{"text": "不转不是中国人，让更多人看到", "labels": ["astroturf"]}
+{"text": "细思极恐，这里面有黑幕", "labels": ["astroturf"]}
+{"text": "你这种人就是圣母婊", "labels": ["polarization", "abuse"]}
+{"text": "今天天气不错，去公园散步了", "labels": ["normal"]}
+{"text": "这个观点我不太同意，我的理由是……", "labels": ["normal"]}
+{"text": "谢谢分享，学到了", "labels": ["normal"]}
+{"text": "请问这个怎么操作？", "labels": ["normal"]}
+{"text": "我觉得 A 方案更好，因为成本更低", "labels": ["normal"]}
+{"text": "哈哈哈哈笑死我了", "labels": ["normal"]}
+{"text": "楼上说的有道理，补充一点", "labels": ["normal"]}

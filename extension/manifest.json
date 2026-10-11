@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "净土 Jingtu",
+  "version": "0.1.0",
+  "description": "自动识别并折叠社交媒体上的阴阳怪气、引战、对立、歧视、辱骂等内容，让你安心刷。",
+  "permissions": ["storage"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
