@@ -57,8 +57,9 @@ py -3.11 -m venv .venv
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 2. 命令行（纯离线，无需任何 key）
-python -m jingtu.cli "你是个傻逼"
-python -m jingtu.cli "不会吧不会吧，就这？"
+python -m jingtu.demo                                   # 演示：一批示例分类
+python -m jingtu.cli "你是个傻逼"                        # 单条分类
+python -m jingtu.cli "文本" --strength strict            # 指定过滤强度（mild/standard/strict）
 # 启用 LLM 语义层（先复制 .env.example 为 .env 填 DEEPSEEK_API_KEY）
 python -m jingtu.cli "哇，你可真是太聪明了呢" --llm
 
