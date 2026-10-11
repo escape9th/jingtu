@@ -38,7 +38,12 @@ class DeepSeekLLM(LLM):
         "polarization(对立/扣帽子)、discrimination(歧视/仇恨)、abuse(辱骂)、"
         "astroturf(带节奏/煽动)、normal(正常)。\n"
         "只输出一个 JSON 对象：{\"labels\": [\"...\"], \"severity\": 0到1的浮点数, \"reason\": \"一句话理由\"}。\n"
-        "正常文本 labels 为 [\"normal\"]、severity 为 0；负面可多标签并列。不要输出 JSON 以外的内容。"
+        "正常文本 labels 为 [\"normal\"]、severity 为 0；负面可多标签并列。不要输出 JSON 以外的内容。\n"
+        "示例：\n"
+        "- \"哇，你可真是太聪明了呢\" → {\"labels\": [\"passive_aggressive\"], \"severity\": 0.5, \"reason\": \"正话反说，反讽\"}\n"
+        "- \"XX人都是小偷\" → {\"labels\": [\"discrimination\"], \"severity\": 0.9, \"reason\": \"群体歧视/地图炮\"}\n"
+        "- \"这个观点我不太同意，理由是……\" → {\"labels\": [\"normal\"], \"severity\": 0, \"reason\": \"正常表达不同意见\"}\n"
+        "- \"今天天气不错\" → {\"labels\": [\"normal\"], \"severity\": 0, \"reason\": \"\"}"
     )
 
     def __init__(self, api_key: str, base_url: str, model: str):

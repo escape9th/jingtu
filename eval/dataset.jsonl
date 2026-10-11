@@ -20,3 +20,9 @@
 {"text": "我觉得 A 方案更好，因为成本更低", "labels": ["normal"]}
 {"text": "哈哈哈哈笑死我了", "labels": ["normal"]}
 {"text": "楼上说的有道理，补充一点", "labels": ["normal"]}
+{"text": "你就是个啥币", "labels": ["abuse"]}
+{"text": "这人就是个键盘侠", "labels": ["polarization"]}
+{"text": "呵呵，你开心就好", "labels": ["passive_aggressive"]}
+{"text": "这电影真好看，推荐大家去看", "labels": ["normal"]}
+{"text": "请问这个优惠券怎么领？", "labels": ["normal"]}
+{"text": "我觉得两个方案各有优劣，很难说哪个更好", "labels": ["normal"]}

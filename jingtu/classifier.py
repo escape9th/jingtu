@@ -59,3 +59,15 @@ class Classifier:
             "method": "hybrid" if labels else "llm",
             "confidence": llm_result.get("confidence", 0.8),
         }
+
+
+# 过滤强度：severity 阈值
+STRENGTH = {"mild": 0.7, "standard": 0.5, "strict": 0.4}
+
+
+def should_block(result: dict, strength: str = "standard") -> bool:
+    """根据过滤强度判断该内容是否应被屏蔽。
+
+    mild（温和）只拦辱骂/歧视；standard（标准）拦引战/对立/阴阳怪气及以上；strict（严格）尽量多拦。
+    """
+    return result.get("severity", 0.0) >= STRENGTH.get(strength, 0.5)
