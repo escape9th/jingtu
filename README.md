@@ -50,6 +50,8 @@
 
 ## 🚀 快速开始 Quick Start
 
+> **Windows 一键**：双击 `setup.bat`（首次装环境）→ `demo.bat`（试用）→ `server.bat`（起服务，供插件调用）→ `test.bat`（跑测试）。不用记激活虚拟环境。
+
 ```bash
 # 1. 装依赖
 py -3.11 -m venv .venv
